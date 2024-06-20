@@ -23,7 +23,12 @@
     "forceConsistentCasingInFileNames": true,
     "isolatedModules": true,
     "skipLibCheck": true,
-    "typeRoots": ["./node_modules/vite"]
+    "typeRoots": [
+      "./node_modules/@types/",
+      "./types",
+      "./node_modules",
+      "./node_modules/vite"
+    ]
   },
   "include": ["src/**/*", "src/**/*.vue"],
   "exclude": ["dist", "node_modules", "cypress"],
