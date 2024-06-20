@@ -1,31 +1,49 @@
 <template>
-  <v-toolbar>
-    <v-toolbar-title>Turing Test</v-toolbar-title>
+  <v-app-bar app>
+    <v-app-bar-title>Turing Test</v-app-bar-title>
     <v-spacer></v-spacer>
-    <v-toolbar-items class="hidden-sm-and-down">
-      <v-btn flat v-for="item in listNav" :key="item.name" :to="item.to">{{
-        item.name
-      }}</v-btn>
-    </v-toolbar-items>
-  </v-toolbar>
+    <v-btn
+      v-for="item in listNav"
+      :key="item.name"
+      :to="item.to"
+      class="mx-2 hidden-sm-and-down"
+    >
+      {{ item.name }}
+    </v-btn>
+  </v-app-bar>
 </template>
 
 <script setup lang="ts">
-const listNav = [
-  { name: "Panel de control", to: "/" },
-  { name: "Gestion de bots", to: "/list" },
-  { name: "Analisis", to: "/analice" },
-  { name: "Gestion de usuarios", to: "/users" },
-  { name: "Configuracion", to: "/config" },
+interface RouterNavModel {
+  name: string;
+  to: string;
+}
+
+const listNav: Array<RouterNavModel> = [
+  { name: "Control Panel", to: "/" },
+  { name: "Bot Management", to: "/list" },
+  { name: "Analysis", to: "/analyze" },
+  { name: "User Management", to: "/users" },
+  { name: "Configuration", to: "/config" },
 ];
 </script>
 
-<style scoped lang="sass">
-.social-link :deep(.v-icon)
-  color: rgba(var(--v-theme-on-background), var(--v-disabled-opacity))
-  text-decoration: none
-  transition: .2s ease-in-out
+<style scoped lang="scss">
+.v-app-bar {
+  background-color: #ffffff;
+  color: #000000;
 
-  &:hover
-    color: rgba(25, 118, 210, 1)
+  .v-toolbar-title {
+    font-size: 1.25rem;
+    font-weight: 500;
+  }
+
+  .v-btn {
+    font-weight: 500;
+
+    &:hover {
+      color: #1976d2;
+    }
+  }
+}
 </style>

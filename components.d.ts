@@ -7,6 +7,8 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
+    ActionButton: typeof import('./src/components/common/ActionButton.vue')['default']
+    AppConfirmDialog: typeof import('./src/components/common/modal/AppConfirmDialog.vue')['default']
     AppFooter: typeof import('./src/components/common/AppFooter.vue')['default']
     AppHeader: typeof import('./src/components/common/AppHeader.vue')['default']
     BotList: typeof import('./src/components/bot-list/BotList.vue')['default']
@@ -14,5 +16,6 @@ declare module 'vue' {
     ModalBotInfo: typeof import('./src/components/common/modal/ModalBotInfo.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    TooltipEllipsis: typeof import('./src/components/common/TooltipEllipsis.vue')['default']
   }
 }

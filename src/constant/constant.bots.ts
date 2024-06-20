@@ -1,10 +1,13 @@
-const lisTraits: Array<String> = ["Formalidad", "Entusiasmo", "Humor"];
-const listUse: Array<String> = [
-  "Atencion al cliente",
-  "Asistente de comercio electronico",
-  "Asesor personal",
-];
+type Trait = "Formality" | "Enthusiasm" | "Humor";
+type Use = "Customer Service" | "E-commerce Assistant" | "Personal Assistant";
+type State = "Active" | "Inactive" | "Preview";
 
-const listState: Array<String> = ["Activo", "Inactivo", "Vista previa"];
+const lisTraits: Trait[] = ["Formality", "Enthusiasm", "Humor"];
+const listUse: Use[] = [
+  "Customer Service",
+  "E-commerce Assistant",
+  "Personal Assistant",
+];
+const listState: State[] = ["Active", "Inactive", "Preview"];
 
 export default { lisTraits, listUse, listState };

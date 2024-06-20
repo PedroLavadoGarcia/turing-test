@@ -1,23 +1,26 @@
 <template>
-  <v-footer height="40" app>
-    <div
-      class="text-caption text-disabled"
-      style="position: absolute; right: 16px"
-    >
-      &copy; 2016-{{ new Date().getFullYear() }}
-      <span class="d-none d-sm-inline-block">Vuetify, LLC</span> —
-      <a
-        class="text-decoration-none on-surface"
-        href="https://vuetifyjs.com/about/licensing/"
-        rel="noopener noreferrer"
-        target="_blank"
-      >
-        MIT License
-      </a>
-    </div>
+  <v-footer app class="footer">
+    <div class="text-caption text-disabled">&copy; 2016-{{ currentYear }}</div>
   </v-footer>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { ref } from "vue";
 
-<style scoped lang="sass"></style>
+const currentYear = ref(new Date().getFullYear());
+</script>
+
+<style scoped lang="scss">
+.footer {
+  background-color: #1e1e1e !important;
+  color: #ffffff !important;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .text-caption {
+    color: rgba(255, 255, 255, 0.7) !important;
+  }
+}
+</style>
