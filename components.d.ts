@@ -9,7 +9,6 @@ declare module 'vue' {
   export interface GlobalComponents {
     AppFooter: typeof import('./src/components/common/AppFooter.vue')['default']
     AppHeader: typeof import('./src/components/common/AppHeader.vue')['default']
-    AppSuccessDialog: typeof import('./src/components/common/modal/AppSuccessDialog.vue')['default']
     BotList: typeof import('./src/components/bot-list/BotList.vue')['default']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
     ModalBotInfo: typeof import('./src/components/common/modal/ModalBotInfo.vue')['default']
