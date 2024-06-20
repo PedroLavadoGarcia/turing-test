@@ -81,7 +81,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref, onMounted } from "vue";
+import { computed, ref, onMounted, watch } from "vue";
 import CONSTANTS_BOTS from "@/constant/constant.bots";
 import { defineProps, defineEmits } from "vue";
 
@@ -140,9 +140,21 @@ const cancel = () => {
   emit("cancel");
 };
 
+// On mounted or when props.item changes, update data with a copy of props.item
 onMounted(() => {
-  Object.assign(data.value, props.item);
+  updateDataFromProps();
 });
+
+watch(
+  () => props.item,
+  () => {
+    updateDataFromProps();
+  }
+);
+
+function updateDataFromProps() {
+  Object.assign(data.value, props.item);
+}
 </script>
 
 <style lang="scss" scoped>
