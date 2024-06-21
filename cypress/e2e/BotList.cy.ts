@@ -1,6 +1,9 @@
 describe("Test BotList", () => {
-  it("go all pages", () => {
+  beforeEach(() => {
     cy.visit("/");
+  });
+
+  it("go all pages", () => {
     cy.contains("a", "Bot Management").click();
     cy.contains("a", "Analysis").click();
     cy.contains("a", "User Management").click();
@@ -8,7 +11,6 @@ describe("Test BotList", () => {
   });
 
   it("go Bot Management and create new bot", () => {
-    cy.visit("/");
     cy.contains("a", "Bot Management").click();
     cy.contains("span", "New Bot").click();
     cy.get(".dialog-card")
@@ -40,7 +42,6 @@ describe("Test BotList", () => {
   });
 
   it("go Bot Management and edit  bot", () => {
-    cy.visit("/");
     cy.contains("a", "Bot Management").click();
     cy.wait(1000);
     cy.get(".table-container").find(".mdi-pencil").eq(0).click();
@@ -51,7 +52,6 @@ describe("Test BotList", () => {
   });
 
   it("delete bot", () => {
-    cy.visit("/");
     cy.contains("a", "Bot Management").click();
     cy.wait(1000);
     cy.get(".table-container").find(".mdi-delete").eq(0).click();
