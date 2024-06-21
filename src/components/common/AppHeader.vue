@@ -1,19 +1,17 @@
 <!-- AppHeader.vue -->
 <template>
-  <div>
-    <v-app-bar>
-      <v-app-bar-title>Turing Test</v-app-bar-title>
-      <v-spacer></v-spacer>
-      <v-btn
-        v-for="item in listNav"
-        :key="item.name"
-        :to="item.to"
-        class="mx-2 hidden-sm-and-down"
-      >
-        {{ item.name }}
-      </v-btn>
-    </v-app-bar>
-  </div>
+  <v-app-bar app>
+    <v-app-bar-title>Turing Test</v-app-bar-title>
+    <v-spacer></v-spacer>
+    <v-btn
+      v-for="item in listNav"
+      :key="item.name"
+      :to="item.to"
+      class="mx-2 hidden-sm-and-down"
+    >
+      {{ item.name }}
+    </v-btn>
+  </v-app-bar>
 </template>
 
 <script setup lang="ts">

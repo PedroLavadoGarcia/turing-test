@@ -1,14 +1,10 @@
 <template>
   <v-footer app class="footer">
-    <div class="text-caption text-disabled">&copy; 2016-{{ currentYear }}</div>
+    <div class="text-caption text-disabled">2016-2024</div>
   </v-footer>
 </template>
 
-<script setup lang="ts">
-import { ref } from "vue";
-
-const currentYear = ref(new Date().getFullYear());
-</script>
+<script setup lang="ts"></script>
 
 <style scoped lang="scss">
 .footer {
