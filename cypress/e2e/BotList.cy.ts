@@ -14,17 +14,17 @@ describe("Test BotList", () => {
     cy.get(".dialog-card")
       .find("input")
       .eq(0)
-      .type("Texto a establecer en el input")
-      .should("have.value", "Texto a establecer en el input");
+      .type("New text")
+      .should("have.value", "New Text");
     cy.get(".dialog-card")
       .find("input")
       .eq(1)
-      .type("Texto a establecer en el input")
-      .should("have.value", "Texto a establecer en el input");
+      .type("New Text")
+      .should("have.value", "New Text");
     cy.get(".dialog-card")
       .find("textarea")
-      .type("Texto a establecer en el input")
-      .should("have.value", "Texto a establecer en el input");
+      .type("New Text")
+      .should("have.value", "New Text");
     cy.get(".dialog-card").find(".v-select").eq(0).click();
     cy.get(".v-list-item").contains("Formality").click();
     cy.get(".dialog-card").click();
@@ -44,7 +44,7 @@ describe("Test BotList", () => {
     cy.contains("a", "Bot Management").click();
     cy.wait(1000);
     cy.get(".table-container").find(".mdi-pencil").eq(0).click();
-    cy.get(".dialog-card").find("input").eq(0).type("Texto edit");
+    cy.get(".dialog-card").find("input").eq(0).type("Text Edit");
 
     cy.contains("span", "Edit").click();
     cy.contains("span", "Confirm").click();
