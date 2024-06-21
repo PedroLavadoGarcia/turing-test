@@ -1,10 +1,16 @@
 <template>
   <section class="view">
     <app-confirm-dialog
-      text="¿Estás seguro?"
+      text="You're sure?"
       @cancel="dialogConfirm = false"
       @confirm="eventConfirm"
       :value="dialogConfirm"
+    />
+    <app-alert
+      :show="alert.show"
+      :type="alert.type"
+      :message="alert.message"
+      @dismiss="dismissAlert"
     />
     <v-card class="table-container">
       <v-data-table :items="items" :headers="headers" fixed-header theme="dark">
@@ -13,7 +19,7 @@
             prepend-icon="mdi-robot"
             color="primary"
             dark
-            class="mb-2"
+            class="mb-2 new-bot-btn"
             @click="openDetail()"
           >
             Nuevo Bot
@@ -68,12 +74,12 @@ import {
 import { db } from "@/utils/firebase";
 
 const headers: any[] = [
-  { title: "Nombre", value: "name", sortable: true },
-  { title: "Descripción", value: "description", sortable: true },
-  { title: "Personalidad", value: "personality", sortable: true },
-  { title: "Rasgos", value: "traits", sortable: true },
-  { title: "Uso", value: "use", sortable: true },
-  { title: "Estado", value: "state", sortable: true },
+  { title: "Name", value: "name", sortable: true },
+  { title: "Description", value: "description", sortable: true },
+  { title: "Personality", value: "personality", sortable: true },
+  { title: "Traits", value: "traits", sortable: true },
+  { title: "Use", value: "use", sortable: true },
+  { title: "State", value: "state", sortable: true },
   { title: "", value: "icons", align: "center" },
 ];
 const items = ref<ModelBot[]>([]);
@@ -81,6 +87,15 @@ const dialogConfirm = ref<boolean>(false);
 const dialogDetail = ref<boolean>(false);
 const itemSelected = ref<ModelBot | Object>({});
 const eventConfirm = ref<() => void>();
+const alert = ref<{
+  show: boolean;
+  type: "success" | "info" | "warning" | "error";
+  message: string;
+}>({
+  show: false,
+  type: "info",
+  message: "",
+});
 
 onMounted(async () => {
   onSnapshot(collection(db, "bots"), (querySnapshot) => {
@@ -123,22 +138,43 @@ function saveChat(item: ModelBot) {
   updateBot(item);
   dialogDetail.value = false;
   dialogConfirm.value = false;
+
+  showAlert("Bot updated successfully", "success");
 }
 
 function createChat(item: ModelBot) {
   createBot(item);
   dialogDetail.value = false;
   dialogConfirm.value = false;
+
+  showAlert("Bot created successfully", "success");
 }
 
 function deleteChat(item: ModelBot) {
   deleteBot(item);
   dialogConfirm.value = false;
+
+  showAlert("Bot deleted successfully", "success");
 }
 
 function openDetail(item?: ModelBot) {
   itemSelected.value = item || {};
   dialogDetail.value = true;
+}
+
+function showAlert(
+  message: string,
+  type: "success" | "info" | "warning" | "error" = "info"
+) {
+  alert.value.show = true;
+  alert.value.message = message;
+  alert.value.type = type;
+}
+
+function dismissAlert() {
+  alert.value.show = false;
+  alert.value.message = "";
+  alert.value.type = "info";
 }
 </script>
 
@@ -205,5 +241,18 @@ function openDetail(item?: ModelBot) {
 
 .tooltip-arrow {
   border-color: #212121 transparent transparent transparent;
+}
+
+.new-bot-btn {
+  font-size: 16px;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+
+  &:hover {
+    background-color: #1e88e5;
+    transform: translateY(-2px);
+  }
 }
 </style>

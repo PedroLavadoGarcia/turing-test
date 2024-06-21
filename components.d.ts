@@ -8,6 +8,7 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     ActionButton: typeof import('./src/components/common/ActionButton.vue')['default']
+    AppAlert: typeof import('./src/components/common/AppAlert.vue')['default']
     AppConfirmDialog: typeof import('./src/components/common/modal/AppConfirmDialog.vue')['default']
     AppFooter: typeof import('./src/components/common/AppFooter.vue')['default']
     AppHeader: typeof import('./src/components/common/AppHeader.vue')['default']
