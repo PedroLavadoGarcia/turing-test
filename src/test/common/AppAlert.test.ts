@@ -1,6 +1,6 @@
 //TEST  CON TEST-UTILS
 import AppAlert from "../../components/common/AppAlert.vue";
-import { createVuetify } from "vuetify/lib/framework.mjs";
+import { createVuetify } from "vuetify";
 import * as components from "vuetify/components";
 import * as directives from "vuetify/directives";
 import { mount } from "@vue/test-utils";

@@ -1,6 +1,6 @@
 <template>
   <div class="centered-text">
-    <h1>TODO Analyze</h1>
+    <h1>TODO ANALYZE</h1>
   </div>
 </template>
 

@@ -1,7 +1,7 @@
 //TEST  CON testing-library
 import DialogComponent from "../../../components/common/modal/AppConfirmDialog.vue";
 import "@testing-library/jest-dom";
-import { createVuetify } from "vuetify/lib/framework.mjs";
+import { createVuetify } from "vuetify";
 import * as components from "vuetify/components";
 import * as directives from "vuetify/directives";
 import { fireEvent, render } from "@testing-library/vue";
