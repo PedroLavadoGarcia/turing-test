@@ -1,4 +1,3 @@
-<!-- AppHeader.vue -->
 <template>
   <v-app-bar app>
     <template v-slot:prepend>
