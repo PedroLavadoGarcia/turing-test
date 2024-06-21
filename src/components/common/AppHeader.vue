@@ -51,15 +51,12 @@ defineProps<{
 .v-app-bar {
   background-color: #ffffff;
   color: #000000;
-
   .v-toolbar-title {
     font-size: 1.25rem;
     font-weight: 500;
   }
-
   .v-btn {
     font-weight: 500;
-
     &:hover {
       color: #1976d2;
     }

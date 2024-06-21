@@ -89,7 +89,7 @@ const dialog = computed({
   set: (v) => emit("input", v),
 });
 
-const data = ref({
+const data = ref<any>({
   id: "",
   name: "",
   description: "",
@@ -131,7 +131,7 @@ watch(
 );
 
 function updateDataFromProps() {
-  Object.assign(data.value, props.item);
+  data.value = { ...props.item };
 }
 </script>
 
