@@ -50,11 +50,11 @@ describe("Test BotList", () => {
     cy.contains("span", "Confirm").click();
   });
 
-  // it("delete bot", () => {
-  //   cy.visit("/");
-  //   cy.contains("a", "Bot Management").click();
-  //   cy.wait(1000);
-  //   cy.get(".table-container").find(".mdi-delete").eq(0).click();
-  //   cy.contains("span", "Confirm").click();
-  // });
+  it("delete bot", () => {
+    cy.visit("/");
+    cy.contains("a", "Bot Management").click();
+    cy.wait(1000);
+    cy.get(".table-container").find(".mdi-delete").eq(0).click();
+    cy.contains("span", "Confirm").click();
+  });
 });
