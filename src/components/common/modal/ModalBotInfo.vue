@@ -6,7 +6,7 @@
         {{ dialogTitle }}
       </v-card-title>
       <v-divider></v-divider>
-      <v-form @submit.prevent="save" ref="form">
+      <v-form @submit.prevent="save" v-model="valid">
         <v-card-text>
           <v-text-field
             v-model="data.name"
@@ -30,41 +30,33 @@
             required
             outlined
           ></v-text-field>
-          <v-row>
-            <v-col cols="12" sm="4">
-              <v-select
-                v-model="data.traits"
-                :items="lists.lisTraits"
-                :rules="rules.requireField"
-                label="Personality Traits"
-                required
-                outlined
-              ></v-select>
-            </v-col>
-            <v-col cols="12" sm="4">
-              <v-select
-                v-model="data.use"
-                :items="lists.listUse"
-                :rules="rules.requireField"
-                label="Case of Use"
-                required
-                outlined
-              ></v-select>
-            </v-col>
-            <v-col cols="12" sm="4">
-              <v-select
-                v-model="data.state"
-                :items="lists.listState"
-                :rules="rules.requireField"
-                label="State"
-                required
-                outlined
-              ></v-select>
-            </v-col>
-          </v-row>
-          <small class="text-caption">
-            * Information needed to create a chat bot
-          </small>
+          <v-select
+            v-model="data.traits"
+            :items="lists.lisTraits"
+            :rules="rules.requireField"
+            label="Personality Traits"
+            required
+            outlined
+          ></v-select>
+          <v-select
+            v-model="data.use"
+            :items="lists.listUse"
+            :rules="rules.requireField"
+            label="Case of Use"
+            required
+            outlined
+          ></v-select>
+          <v-select
+            v-model="data.state"
+            :items="lists.listState"
+            :rules="rules.requireField"
+            label="State"
+            required
+            outlined
+          ></v-select>
+          <small class="text-caption"
+            >* Information needed to create a chat bot</small
+          >
         </v-card-text>
         <v-divider></v-divider>
         <v-card-actions class="dialog-actions">
@@ -86,14 +78,8 @@ import CONSTANTS_BOTS from "@/constant/constant.bots";
 import { defineProps, defineEmits } from "vue";
 
 const props = defineProps({
-  item: {
-    type: Object,
-    default: () => ({}),
-  },
-  value: {
-    type: Boolean,
-    required: true,
-  },
+  item: { type: Object, default: () => ({}) },
+  value: { type: Boolean, required: true },
 });
 
 const emit = defineEmits(["input", "save", "create", "cancel"]);
@@ -123,15 +109,12 @@ const rules = {
 
 const lists = CONSTANTS_BOTS;
 
-const form = ref();
+const valid = ref(false);
 
 const save = async () => {
-  const { valid } = await form.value.validate();
-  if (valid) {
+  if (valid.value) {
     dialog.value = false;
-    data.value.id
-      ? emit("save", { ...data.value })
-      : emit("create", { ...data.value });
+    emit(data.value.id ? "save" : "create", { ...data.value });
   }
 };
 
@@ -140,16 +123,11 @@ const cancel = () => {
   emit("cancel");
 };
 
-// On mounted or when props.item changes, update data with a copy of props.item
-onMounted(() => {
-  updateDataFromProps();
-});
+onMounted(() => updateDataFromProps());
 
 watch(
   () => props.item,
-  () => {
-    updateDataFromProps();
-  }
+  () => updateDataFromProps()
 );
 
 function updateDataFromProps() {
@@ -157,7 +135,7 @@ function updateDataFromProps() {
 }
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 .dialog-card {
   width: 100%;
   max-width: 800px;
@@ -165,13 +143,11 @@ function updateDataFromProps() {
   color: #333;
   border-radius: 8px;
 }
-
 .dialog-title {
   font-size: 1.75rem;
   font-weight: 500;
   margin-top: 24px;
 }
-
 .close-icon {
   position: absolute;
   right: 16px;
@@ -179,19 +155,16 @@ function updateDataFromProps() {
   cursor: pointer;
   color: #666;
 }
-
 .dialog-actions {
   padding: 16px;
   background-color: #f5f5f5;
   display: flex;
   justify-content: flex-end;
 }
-
 .dialog-actions > .v-btn {
   margin-left: 8px;
   min-width: 100px;
 }
-
 .text-caption {
   font-size: 0.875rem;
   color: #666;

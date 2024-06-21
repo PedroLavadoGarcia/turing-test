@@ -22,7 +22,7 @@
             class="mb-2 new-bot-btn"
             @click="openDetail()"
           >
-            Nuevo Bot
+            New Bot
           </v-btn>
         </template>
         <template v-slot:[`item.description`]="{ item }">

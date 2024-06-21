@@ -5,12 +5,14 @@
     "lib": ["DOM", "ESNext"],
     "baseUrl": ".",
     "module": "ESNext",
-    "moduleResolution": "Bundler",
+    "moduleResolution": "node",
     "paths": {
       "@/*": ["src/*"]
     },
     "resolveJsonModule": true,
     "types": [
+      "vitest/globals",
+      "jest",
       "vite/client",
       "vite-plugin-vue-layouts/client",
       "unplugin-vue-router/client"

@@ -1,5 +1,5 @@
 <template>
-  <div class="table-container__ellipsis">
+  <div class="table-container__ellipsis" data-testid="ellipsis">
     <v-tooltip :text="text" location="top" :disabled="text.length < 50">
       <template v-slot:activator="{ props }">
         <div v-bind="props" class="ellipsis">

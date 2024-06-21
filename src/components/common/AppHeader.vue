@@ -1,31 +1,32 @@
+<!-- AppHeader.vue -->
 <template>
-  <v-app-bar app>
-    <v-app-bar-title>Turing Test</v-app-bar-title>
-    <v-spacer></v-spacer>
-    <v-btn
-      v-for="item in listNav"
-      :key="item.name"
-      :to="item.to"
-      class="mx-2 hidden-sm-and-down"
-    >
-      {{ item.name }}
-    </v-btn>
-  </v-app-bar>
+  <div>
+    <v-app-bar>
+      <v-app-bar-title>Turing Test</v-app-bar-title>
+      <v-spacer></v-spacer>
+      <v-btn
+        v-for="item in listNav"
+        :key="item.name"
+        :to="item.to"
+        class="mx-2 hidden-sm-and-down"
+      >
+        {{ item.name }}
+      </v-btn>
+    </v-app-bar>
+  </div>
 </template>
 
 <script setup lang="ts">
-interface RouterNavModel {
+import { defineProps } from "vue";
+
+export interface RouterNavModel {
   name: string;
   to: string;
 }
 
-const listNav: Array<RouterNavModel> = [
-  { name: "Control Panel", to: "/" },
-  { name: "Bot Management", to: "/list" },
-  { name: "Analysis", to: "/analyze" },
-  { name: "User Management", to: "/users" },
-  { name: "Configuration", to: "/config" },
-];
+defineProps<{
+  listNav: RouterNavModel[];
+}>();
 </script>
 
 <style scoped lang="scss">
