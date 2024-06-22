@@ -13,18 +13,20 @@
       @dismiss="dismissAlert"
     />
     <v-card class="table-container">
+      <div class="table-header">
+        <h1 class="table-title">Bot Management</h1>
+        <v-btn
+          prepend-icon="mdi-robot"
+          color="primary"
+          dark
+          class="new-bot-btn"
+          @click="openDetail()"
+        >
+          New Bot
+        </v-btn>
+      </div>
       <v-data-table :items="items" :headers="headers" fixed-header theme="dark">
-        <template v-slot:top>
-          <v-btn
-            prepend-icon="mdi-robot"
-            color="primary"
-            dark
-            class="mb-2 new-bot-btn"
-            @click="openDetail()"
-          >
-            New Bot
-          </v-btn>
-        </template>
+        <template v-slot:top></template>
         <template v-slot:[`item.description`]="{ item }">
           <tooltip-ellipsis :text="item.description" />
         </template>
@@ -185,8 +187,26 @@ function dismissAlert() {
   height: 100%;
 }
 
+.table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #2c2c2c;
+  color: #ffffff;
+  border-bottom: 1px solid #444;
+}
+
+.table-title {
+  margin: 0;
+  font-size: 28px;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
 .table-container {
   display: flex;
+  flex-direction: column;
   flex-grow: 1;
   overflow: hidden;
 
@@ -244,15 +264,18 @@ function dismissAlert() {
 }
 
 .new-bot-btn {
-  font-size: 16px;
+  font-size: 14px;
   font-weight: bold;
-  padding: 10px 20px;
-  border-radius: 8px;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  padding: 8px 16px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, transform 0.3s ease,
+    box-shadow 0.3s ease;
 
   &:hover {
     background-color: #1e88e5;
     transform: translateY(-2px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
   }
 }
 </style>
