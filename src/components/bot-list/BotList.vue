@@ -248,7 +248,7 @@ function dismissAlert() {
   transition: color 0.3s ease;
 
   &:hover {
-    color: var(--color-action-button-hover);
+    color: var(--color-primary);
   }
 }
 

@@ -61,7 +61,7 @@ defineProps<{
     font-weight: 500;
 
     &:hover {
-      color: var(--color-action-button-hover);
+      color: var(--color-primary);
     }
   }
 }
