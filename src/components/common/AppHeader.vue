@@ -49,8 +49,8 @@ defineProps<{
 
 <style scoped lang="scss">
 .v-app-bar {
-  background-color: var(--color-tooltip-text) !important;
-  color: var(--color-tooltip) !important;
+  background-color: var(--color-background-white) !important;
+  color: var(--color-text-dark) !important;
 
   .v-toolbar-title {
     font-size: 1.25rem;

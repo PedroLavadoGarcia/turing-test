@@ -9,10 +9,12 @@
   --color-background: #2c2c2c;
   --color-background-dark: #212121;
   --color-background-light: #37474f;
+  --color-background-white: #ffffff;
 
   --color-text-primary: #ffffff;
   --color-text-secondary: #b0bec5;
   --color-text-accent: #80d8ff;
+  --color-text-dark: #212121;
 
   --color-success: #4caf50;
   --color-info: #2196f3;
