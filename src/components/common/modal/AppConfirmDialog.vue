@@ -74,10 +74,10 @@ export default {
 
 <style lang="scss" scoped>
 .dialog-card {
-  background-color: #ffffff; /* Fondo blanco */
-  color: #333333; /* Texto oscuro */
+  background-color: var(--color-background-light);
+  color: var(--color-text-primary);
   border-radius: 8px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  box-shadow: 0px 4px 8px var(--color-shadow);
 }
 
 .close-icon {
@@ -85,7 +85,7 @@ export default {
   position: absolute;
   top: 8px;
   right: 8px;
-  color: #666666; /* Icono de cierre gris */
+  color: var(--color-text-secondary);
   cursor: pointer;
 }
 

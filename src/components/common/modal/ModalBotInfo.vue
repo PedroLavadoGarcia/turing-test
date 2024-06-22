@@ -54,9 +54,9 @@
             required
             outlined
           ></v-select>
-          <small class="text-caption"
-            >* Information needed to create a chat bot</small
-          >
+          <small class="text-caption">
+            * Information needed to create a chat bot
+          </small>
         </v-card-text>
         <v-divider></v-divider>
         <v-card-actions class="dialog-actions">
@@ -139,34 +139,39 @@ function updateDataFromProps() {
 .dialog-card {
   width: 100%;
   max-width: 800px;
-  background-color: #f5f5f5;
-  color: #333;
+  background-color: var(--color-background-light);
+  color: var(--color-text-primary);
   border-radius: 8px;
 }
+
 .dialog-title {
   font-size: 1.75rem;
   font-weight: 500;
   margin-top: 24px;
 }
+
 .close-icon {
   position: absolute;
   right: 16px;
   top: 16px;
   cursor: pointer;
-  color: #666;
+  color: var(--color-text-secondary);
 }
+
 .dialog-actions {
   padding: 16px;
-  background-color: #f5f5f5;
+  background-color: var(--color-background-light);
   display: flex;
   justify-content: flex-end;
 }
+
 .dialog-actions > .v-btn {
   margin-left: 8px;
   min-width: 100px;
 }
+
 .text-caption {
   font-size: 0.875rem;
-  color: #666;
+  color: var(--color-text-secondary);
 }
 </style>

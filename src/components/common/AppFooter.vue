@@ -8,8 +8,8 @@
 
 <style scoped lang="scss">
 .footer {
-  background-color: #1e1e1e !important;
-  color: #ffffff !important;
+  background-color: var(--color-background-dark) !important;
+  color: var(--color-text-primary) !important;
   height: 40px;
   display: flex;
   justify-content: center;

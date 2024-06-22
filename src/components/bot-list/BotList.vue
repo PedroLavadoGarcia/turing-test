@@ -199,16 +199,16 @@ function dismissAlert() {
   justify-content: space-between;
   align-items: center;
   padding: 20px;
-  background-color: #37474f;
-  color: #ffffff;
-  border-bottom: 1px solid #444;
+  background-color: var(--color-table-header);
+  color: var(--color-text-primary);
+  border-bottom: 1px solid var(--color-border);
 }
 
 .table-title {
   margin: 0;
   font-size: 28px;
   font-weight: bold;
-  color: #80d8ff;
+  color: var(--color-table-header-text);
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
@@ -231,8 +231,8 @@ function dismissAlert() {
 }
 
 .v-data-table {
-  background-color: #2c2c2c;
-  color: #ffffff;
+  background-color: var(--color-background);
+  color: var(--color-text-primary);
 }
 
 .action-buttons {
@@ -243,25 +243,25 @@ function dismissAlert() {
   background-color: transparent;
   border: none;
   cursor: pointer;
-  color: #ffffff;
+  color: var(--color-text-primary);
   font-size: 16px;
   transition: color 0.3s ease;
 
   &:hover {
-    color: #1976d2;
+    color: var(--color-action-button-hover);
   }
 }
 
 .tooltip {
-  background-color: #212121;
-  color: #ffffff;
+  background-color: var(--color-tooltip);
+  color: var(--color-tooltip-text);
   padding: 4px 8px;
   border-radius: 4px;
   font-size: 12px;
 }
 
 .tooltip-arrow {
-  border-color: #212121 transparent transparent transparent;
+  border-color: var(--color-tooltip) transparent transparent transparent;
 }
 
 .new-bot-btn {
@@ -269,14 +269,16 @@ function dismissAlert() {
   font-weight: bold;
   padding: 8px 16px;
   border-radius: 12px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px var(--color-shadow);
   transition: background-color 0.3s ease, transform 0.3s ease,
     box-shadow 0.3s ease;
+  background-color: var(--color-primary);
+  color: var(--color-text-primary);
 
   &:hover {
-    background-color: #1e88e5;
+    background-color: var(--color-button-hover);
     transform: translateY(-2px);
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 6px 10px var(--color-button-shadow);
   }
 }
 </style>

@@ -20,7 +20,7 @@ const listNav: Array<RouterNavModel> = [
 ];
 </script>
 
-<style>
+<style lang="scss" scoped>
 html {
   overflow: auto;
 }

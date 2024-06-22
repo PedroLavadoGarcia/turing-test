@@ -49,29 +49,29 @@ watch(
 .my-custom-alert {
   font-size: 14px;
   padding: 8px 12px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--color-shadow);
   text-align: left;
   line-height: 1.4;
 }
 
 .my-custom-alert.success {
-  background-color: #43a047;
-  color: #ffffff;
+  background-color: var(--color-success);
+  color: var(--color-text-primary);
 }
 
 .my-custom-alert.warning {
-  background-color: #ffb300;
-  color: #ffffff;
+  background-color: var(--color-warning);
+  color: var(--color-text-primary);
 }
 
 .my-custom-alert.error {
-  background-color: #e53935;
-  color: #ffffff;
+  background-color: var(--color-error);
+  color: var(--color-text-primary);
 }
 
 .my-custom-alert.info {
-  background-color: #1976d2;
-  color: #ffffff;
+  background-color: var(--color-info);
+  color: var(--color-text-primary);
 }
 
 .fade-enter-active,
