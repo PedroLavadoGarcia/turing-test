@@ -7,15 +7,12 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
-    ActionButton: typeof import('./src/components/common/ActionButton.vue')['default']
-    AppAlert: typeof import('./src/components/common/AppAlert.vue')['default']
-    AppConfirmDialog: typeof import('./src/components/common/modal/AppConfirmDialog.vue')['default']
-    AppFooter: typeof import('./src/components/common/AppFooter.vue')['default']
-    AppHeader: typeof import('./src/components/common/AppHeader.vue')['default']
-    BotList: typeof import('./src/components/bot-list/BotList.vue')['default']
-    ModalBotInfo: typeof import('./src/components/common/modal/ModalBotInfo.vue')['default']
+    ConfirmSaveDialog: typeof import('./src/components/common/dialog/ConfirmSaveDialog.vue')['default']
+    FormVisval: typeof import('./src/components/FormVisval.vue')['default']
+    Login: typeof import('./src/components/Login.vue')['default']
+    ResultDialog: typeof import('./src/components/common/dialog/ResultDialog.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
-    TooltipEllipsis: typeof import('./src/components/common/TooltipEllipsis.vue')['default']
+    SpinnerOverlay: typeof import('./src/components/common/spinner/SpinnerOverlay.vue')['default']
   }
 }

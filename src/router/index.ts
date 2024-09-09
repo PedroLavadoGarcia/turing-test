@@ -13,4 +13,15 @@ const router = createRouter({
   routes,
 });
 
+// Middleware for route protection
+// router.beforeEach((to, from, next) => {
+//   const isAuthenticated = false; // Replace this with your actual authentication logic
+
+//   if (to.name !== 'Login' && !isAuthenticated) {
+//     next({ name: 'Login' });
+//   } else {
+//     next();
+//   }
+// });
+
 export default router;
